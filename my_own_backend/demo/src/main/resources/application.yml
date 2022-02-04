@@ -1,0 +1,10 @@
+port: 27017
+dbname: BlogDb
+spring:
+  data:
+    mongodb:
+      username: arlan
+      password: pass123
+      database: BlogDb
+      uri: mongodb+srv://arlan:pass123@blogdb.jtfqr.mongodb.net/BlogDb?retryWrites=true&w=majority
+       
