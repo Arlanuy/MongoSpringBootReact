@@ -1,8 +1,20 @@
 import {Card, CardTitle, Row, Col, CardBody, CardText, Container, Button} from 'reactstrap';
 import {Link} from 'react-router-dom';
 import React from 'react';
+import axios from 'axios';
+import base_url from './../service/serviceapi';
+import { toast } from 'react-toastify';
 
 const Blog = ({blog}) => {
+    const deleteblog = () => {
+        axios.delete(`${base_url}/delete/${blog.id}`).then(response => {
+            toast.info("!! Blog " + blog.title + " Deleted Successfully");
+        }).catch(error => {
+            console.log("Error in deleting");
+            toast.error("Something went wrong on the server upon deletion");
+        })
+    }
+
     console.log("current log is " + JSON.stringify(blog));
     return (
         <Card body inverse color="info">
@@ -15,7 +27,11 @@ const Blog = ({blog}) => {
                     <Link className="btn btn-primary" to="/update">
                         Edit
                     </Link>
-                    <Button>
+                    <Button color="danger" onClick={() =>
+                        {
+                            deleteblog(blog.blogId);
+                        }
+                    }>
                         Delete
                     </Button>
                 </Container>
