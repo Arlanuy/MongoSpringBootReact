@@ -5,13 +5,13 @@ import axios from 'axios';
 import base_url from './../service/serviceapi';
 import { toast } from 'react-toastify';
 
-const Blog = ({blog}) => {
+const Blog = ({blogId, blog, update}) => {
     const deleteblog = () => {
-        axios.delete(`${base_url}/delete/${blog.id}`).then(response => {
+        axios.delete(`${base_url}/delete/${blogId}`).then(response => {
             toast.info("!! Blog " + blog.title + " Deleted Successfully");
+            update(blogId)
         }).catch(error => {
-            console.log("Error in deleting");
-            toast.error("Something went wrong on the server upon deletion");
+            toast.error("Something went wrong on the server upon deletion" + JSON.stringify(error.message));
         })
     }
 

@@ -15,6 +15,12 @@ const AllBlog = () => {
         getAllBlogsFromServer();
     }, [])
 
+    const updateBlogs = (blogId) => {
+        setBlogs(blogs.filter((blog) => blog.id !== blogId
+        ));
+        console.logs("filtered blogs are " + JSON.stringify(blogs));
+    }
+
     const getAllBlogsFromServer = () => {
         axios.get(`${base_url}/all`).then(response => {
             console.log(response.data);
@@ -38,7 +44,7 @@ const AllBlog = () => {
                 blogs.length>0?
                     blogs.map((blog) => {
                         console.log("passed blog with content of " + JSON.stringify(blog) );
-                        return <Blog key={blog.blogId} blog={blog}/>
+                        return <Blog key={blog.blogId} blogId={blog.blogId} blog={blog} update={updateBlogs}/>
                     })
                     :"No blogs available to Show"
             }
