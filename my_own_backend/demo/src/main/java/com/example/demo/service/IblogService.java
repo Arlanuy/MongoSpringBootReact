@@ -8,6 +8,7 @@ public interface IblogService {
 	Blog create (Blog blog);
 	
 	List<Blog> findByTitle(String Title);
+	
 	Blog findById(String id);
 	
 	List<Blog> findAll();
