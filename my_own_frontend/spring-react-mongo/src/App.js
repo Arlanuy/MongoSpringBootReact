@@ -33,7 +33,7 @@ function App() {
                 <Route exact path="/" element={<AllBlog/>} />
                 
                 <Route path="/addblog" element={<AddBlog/>}/>
-                <Route path="/updateblog" element={<UpdateBlog/>}/>
+                <Route path="/updateblog/:index" element={<UpdateBlog/>}/>
                 
               </Routes>
             </Col>

@@ -24,7 +24,7 @@ const Blog = ({blogId, blog, update}) => {
                 </CardTitle>
                 <CardText>{blog.content}</CardText>
                 <Container>
-                    <Link className="btn btn-primary" to="/update">
+                    <Link className="btn btn-primary" to={{pathname: `/updateblog/${blog.blogId}`, param:`${blog.blogId}`}}>
                         Edit
                     </Link>
                     <Button color="danger" onClick={() =>

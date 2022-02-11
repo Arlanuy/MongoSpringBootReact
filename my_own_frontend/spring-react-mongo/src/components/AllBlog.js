@@ -5,7 +5,9 @@ import { useState } from 'react';
 import axios from 'axios';
 import base_url from './../service/serviceapi';
 import { toast } from 'react-toastify';
+
 const AllBlog = () => {
+
     const [blogs, setBlogs] = useState([
         
     ])
@@ -44,7 +46,7 @@ const AllBlog = () => {
                 blogs.length>0?
                     blogs.map((blog) => {
                         console.log("passed blog with content of " + JSON.stringify(blog) );
-                        return <Blog key={blog.blogId} blogId={blog.blogId} blog={blog} update={updateBlogs}/>
+                        return <Blog key={blog.blogId} blogId={blog.blogId} blog={blog}  update={updateBlogs}/>
                     })
                     :"No blogs available to Show"
             }
